@@ -170,15 +170,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				register_code(KC_U);
 				unregister_code(KC_LALT);
 				unregister_code(KC_U);
-				register_code(KC_LSHIFT);
+				
+				register_code(KC_LSFT);
 				register_code(KC_A);
 				unregister_code(KC_A);
-				unregister_code(KC_LSHIFT);
+				unregister_code(KC_LSFT);
 			} else {
 				register_code(KC_LALT);
 				register_code(KC_U);
 				unregister_code(KC_LALT);
 				unregister_code(KC_U);
+
 				register_code(KC_A);
 				unregister_code(KC_A);
 			}
@@ -201,6 +203,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			}
 			return false;
 			break;
+		case KX_UMLAUT_O_MAC:
+			if (shift_mask) { 
+				register_code(KC_LALT);
+				register_code(KC_U);
+				unregister_code(KC_LALT);
+				unregister_code(KC_U);
+				
+				register_code(KC_LSFT);
+				register_code(KC_O);
+				unregister_code(KC_O);
+				unregister_code(KC_LSFT);
+			} else {
+				register_code(KC_LALT);
+				register_code(KC_U);
+				unregister_code(KC_LALT);
+				unregister_code(KC_U);
+
+				register_code(KC_O);
+				unregister_code(KC_O);
+			}
+			return false;
+			break;
 		case KX_UMLAUT_U:
 			if (shift_mask) {
 				unregister_code(KC_LSFT);
@@ -218,12 +242,52 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			}
 			return false;
 			break;
+		case KX_UMLAUT_U_MAC:
+			if (shift_mask) { 
+				register_code(KC_LALT);
+				register_code(KC_U);
+				unregister_code(KC_LALT);
+				unregister_code(KC_U);
+				
+				register_code(KC_LSFT);
+				register_code(KC_U);
+				unregister_code(KC_LSFT);
+				unregister_code(KC_U);
+			} else {
+				register_code(KC_LALT);
+				register_code(KC_U);
+				unregister_code(KC_LALT);
+				unregister_code(KC_U);
+
+				register_code(KC_U);
+				unregister_code(KC_U);
+			}
+			return false;
+			break;
 		case KX_UMLAUT_S:
 			send_altcode(223, record); // ß
 			return false;
 			break;
+		case KX_UMLAUT_S_MAC:			
+			register_code(KC_LALT);
+			register_code(KC_S);
+
+			unregister_code(KC_LALT);
+			unregister_code(KC_S);
+			return false;
+			break;
 		case KX_EURO:
 			send_altcode(128, record); // Euro
+			return false;
+			break;
+		case KX_EURO_MAC:
+			register_code(KC_LSFT);
+			register_code(KC_LALT);
+			register_code(KC_2);
+
+			unregister_code(KC_LSFT);
+			unregister_code(KC_LALT);
+			unregister_code(KC_2);
 			return false;
 			break;
 		}
