@@ -1,56 +1,56 @@
 #include QMK_KEYBOARD_H
 
-#define MODS_SHIFT_MASK  (MOD_BIT(KC_LSHIFT)|MOD_BIT(KC_RSHIFT))
+#define MODS_SHIFT_MASK (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT))
 
 #define LAYER_QWERTY 0
 #define LAYER_FUNCTION 5
 
 enum custom_keycodes {
-	KX_UMLAUT_A = SAFE_RANGE,
-	KX_UMLAUT_O,
-	KX_UMLAUT_U,
-	KX_UMLAUT_S,
-	KX_EURO,
+    KX_UMLAUT_A = SAFE_RANGE,
+    KX_UMLAUT_O,
+    KX_UMLAUT_U,
+    KX_UMLAUT_S,
+    KX_EURO,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	static uint8_t shift_mask;
-	shift_mask = get_mods()&MODS_SHIFT_MASK;
+    static uint8_t shift_mask;
+    shift_mask = get_mods() & MODS_SHIFT_MASK;
     set_unicode_input_mode(UC_LNX);
 
-	if (record->event.pressed) {
-		switch(keycode) {
-		case KX_UMLAUT_A:
-			if (shift_mask) { // We want a capital version of the German A Umlaut 'cause shift is pressed
-                send_unicode_string("Ä");
-			} else {
-				send_unicode_string("ä");
-			}
-			return false;
-		case KX_UMLAUT_O:
-			if (shift_mask) {
-				send_unicode_string("Ö");
-			} else {
-                send_unicode_string("ö");
-			}
-			return false;
-		case KX_UMLAUT_U:
-			if (shift_mask) {
-                send_unicode_string("Ü");
-			} else {
-				send_unicode_string("ü");
-            }
-			return false;
-		case KX_UMLAUT_S:
-			send_unicode_string("ß");
-			return false;
-		case KX_EURO:
-			send_unicode_string("€");
-			return false;
+    if (record->event.pressed) {
+        switch (keycode) {
+            case KX_UMLAUT_A:
+                if (shift_mask) {  // We want a capital version of the German A Umlaut 'cause shift is pressed
+                    send_unicode_string("Ä");
+                } else {
+                    send_unicode_string("ä");
+                }
+                return false;
+            case KX_UMLAUT_O:
+                if (shift_mask) {
+                    send_unicode_string("Ö");
+                } else {
+                    send_unicode_string("ö");
+                }
+                return false;
+            case KX_UMLAUT_U:
+                if (shift_mask) {
+                    send_unicode_string("Ü");
+                } else {
+                    send_unicode_string("ü");
+                }
+                return false;
+            case KX_UMLAUT_S:
+                send_unicode_string("ß");
+                return false;
+            case KX_EURO:
+                send_unicode_string("€");
+                return false;
         }
-	}
+    }
 
-	return true;
+    return true;
 }
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[LAYER_QWERTY] = LAYOUT(
