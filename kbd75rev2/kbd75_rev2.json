@@ -119,7 +119,7 @@
       "KC_RGHT"
     ],
     [
-      "KC_TRNS",
+      "RESET",
       "RGB_VAI",
       "RGB_VAD",
       "RGB_MOD",
@@ -135,7 +135,7 @@
       "RGB_M_G",
       "RGB_M_P",
       "RGB_TOG",
-      "KC_TRNS",
+      "0x5c15",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
