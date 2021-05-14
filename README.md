@@ -1,10 +1,10 @@
-# MelGeek MJ64
+# MelGeek MJ64 / YMDK YD60MQ
 
 ## Layer 0
-![layer0](melgeekmj64/layer0.png)
+![layer0](images/layer0.png)
 
 ## Layer 1
-![layer0](melgeekmj64/layer1.png)
+![layer0](images/layer1.png)
 
 ## Layer 2
-![layer0](melgeekmj64/layer2.png)
+![layer0](images/layer2.png)
