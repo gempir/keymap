@@ -142,7 +142,7 @@
       "KC_VOLU",
       "KC_MPLY",
       "KC_TRNS",
-      "KC_NO",
+      "0x5c15",
       "KC_TRNS",
       "KC_TRNS",
       "KC_NO",
